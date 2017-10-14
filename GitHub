@@ -1,0 +1,18 @@
+git init
+git add .
+git status
+git commit -m "Prueba de Angular 2..."
+git config --global user.name "Your Name"
+git config --global user.email you@example.com
+git remote add origin https://github.com/jonathanbr1984/videoClub.git
+git push origin master
+Username for 'https://github.com': jonathanbr1984
+Password for 'https://jonathanbr1984@github.com': 
+Counting objects: 124, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (108/108), done.
+Writing objects: 100% (124/124), 53.89 KiB | 0 bytes/s, done.
+Total 124 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), done.
+To https://github.com/jonathanbr1984/videoClub.git
+ * [new branch]      master -> master

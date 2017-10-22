@@ -9,6 +9,7 @@
                 <th>Nombres</th>
                 <th>Apellidos</th>
                 <th>Email</th>
+                <th>Switch</th>
                 <th>Acción</th>
             </tr>
         </thead>
@@ -18,7 +19,14 @@
                 <td>{{item.nombres}}</td>
                 <td>{{item.apellidos}}</td>
                 <td>{{item.email}}</td>
-                <td><a class="btn btn-primary" ui-sref="usuarios-update({idUsuario:item.id})">Editar</a></td>
+                <td>
+                    <div class="inset">
+                        <md-switch ng-model="vm.usuario.active" aria-label="Switch">
+                            Switch: {{vm.usuario.active}}
+                        </md-switch>
+                    </div>
+                </td>
+                <td><a class="btn btn-primary" ng-click="vm.goUpdateUser(item.id)">Editar</a></td>
             </tr>
         </tbody>
     </table>

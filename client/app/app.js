@@ -9,7 +9,8 @@ angular.module('videoClubApp', [
         'ui.bootstrap',
         'satellizer',
         'ngMessages',
-        'ngMaterial'
+        'ngMaterial',
+        'LocalStorageModule'
 
     ])
     .constant("API", "http://localhost:8080/VideoClub_Backend")
@@ -24,4 +25,11 @@ angular.module('videoClubApp', [
         $urlRouterProvider.otherwise('/');
 
         $locationProvider.html5Mode(true);
+    })
+    //LocalStorage
+    .config(function(localStorageServiceProvider) {
+        localStorageServiceProvider
+            .setPrefix('LSVideoClub')
+            .setStorageType('localStorage')
     });
+//LocalStorage

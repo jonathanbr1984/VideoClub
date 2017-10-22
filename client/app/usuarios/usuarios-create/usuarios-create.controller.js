@@ -86,13 +86,14 @@
                 })
         }
         validarNumDocumento() {
+            console.log("documento", this.usuario.numDocumento);
             this.usuariosService.query({ numDocumento: this.usuario.numDocumento }).$promise
                 .then(response => {
                     if (response.length == 0 || this.usuario.numDocumento == undefined) {
-                        console.log("Valida", response);
+                        console.log("Invalida", response);
                         this.showValidarDocumento = false;
                     } else {
-                        console.log("Invalido", response);
+                        console.log("Valido", response);
                         this.showValidarDocumento = true;
                     }
                 })
@@ -122,10 +123,10 @@
             this.usuariosService.query({ email: this.usuario.email }).$promise
                 .then(response => {
                     if (response.length == 0 || this.usuario.email == undefined) {
-                        console.log("valido", response);
+                        console.log("Invalido", response);
                         this.showValidaEmail = true;
                     } else {
-                        console.log("Invalido", response);
+                        console.log("Valido", response);
                         this.showValidaEmail = false;
                     }
                 })

@@ -5,6 +5,7 @@ angular.module('videoClubApp')
         $stateProvider
             .state('usuarios-list', {
                 url: '/usuarios-list',
+                authenticate: ['ADMIN'],
                 template: '<usuarios-list></usuarios-list>'
             })
             .state('usuarios-create', {
@@ -12,7 +13,8 @@ angular.module('videoClubApp')
                 template: '<usuarios-create></usuarios-create>'
             })
             .state('usuarios-update', {
-                url: '/usuarios-update/:idUsuario',
+                url: '/usuarios-update',
+                authenticate: true,
                 template: '<usuarios-update></usuarios-update>'
             });
     });

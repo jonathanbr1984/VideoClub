@@ -11,6 +11,9 @@
             <label for="">Documento</label>
             <input class="form-control" type="text" name="numDocumento" required minlength="7" maxlength="10" ng-pattern="/^[0-9]{1.25}$/" ng-blur="vm.validarNumDocumento()" ng-model="vm.usuario.numDocumento">
             <div class="" ng-messages="userForm.numDocumento.$error" ng-show="userform.numDocumento.$dirty">
+                <div class="alert alert-danger" role="alert" ng-show="vm.showValidarDocumento">
+                    <p>El numero de documento ya se encuentra registrado</p>
+                </div>
                 <div class="alert alert-danger" ng-message="required">
                     Este campo es requerido
                 </div>
@@ -21,11 +24,7 @@
                     El documento debe contener maximo 10 caracteres
                 </div>
             </div>
-            <div class="alert alert-danger" role="alert" ng-show="vm.showValidarDocumento">
-                <p>El numero de documento ya se encuentra registrado</p>
-            </div>
         </div>
-        <p>{{vm.usuario.numDocumento}}{{vm.usuario.nombres}}</p>
         <ul>
             <label for="">Nombres</label>
             <input class="form-control" type="text" ng-model="vm.usuario.nombres">
@@ -38,15 +37,15 @@
             <label for="">Email</label>
             <input class="form-control" ng-blur="vm.validarEmail()" type="email" name="email" ng-model="vm.usuario.email" required ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/">
             <div class="" ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty">
+                <div class="alert alert-danger" role="alert" ng-show="vm.showValidaEmail">
+                    <p>El email se encuentra registrado</p>
+                </div>
                 <div class="alert alert-danger" ng-message="required">
                     Este campo es requerido
                 </div>
                 <div class="alert alert-danger" ng-message="pattern">
                     Ingrese un email valido
                 </div>
-            </div>
-            <div class="alert alert-danger" role="alert" ng-show="vm.showValidaEmail">
-                <p>El email se encuentra registrado</p>
             </div>
         </div>
         <ul>
@@ -87,7 +86,7 @@
             <!--input class="form-control" type="text" ng-model="vm.usuario.ciudades.id"-->
         </ul>
         <!--autocomplete-->
-        <md-autocomplete md-selected-item="vm.selectedItem" md-search-text="vm.searchText" md-selected-item-change="vm.selectedItemChange(item)" md-items="item in vm.querySearch(vm.searchText)" md-item-text="item.nombre" md-min-length="0" placeholder="Pick an Angular repository"
+        <md-autocomplete md-selected-item="vm.selectedItem" md-search-text="vm.searchText" md-selected-item-change="vm.selectedItemChange(item)" md-items="item in vm.querySearch(vm.searchText)" md-item-text="item.nombre" md-min-length="1" placeholder="Ciudades"
             md-menu-class="autocomplete-custom-template">
             <md-item-template>
                 <span class="item-title">

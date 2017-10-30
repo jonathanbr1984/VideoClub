@@ -10,7 +10,8 @@ angular.module('videoClubApp', [
         'satellizer',
         'ngMessages',
         'ngMaterial',
-        'LocalStorageModule'
+        'LocalStorageModule',
+        'md.data.table'
 
     ])
     .constant("API", "http://localhost:8080/VideoClub_Backend")

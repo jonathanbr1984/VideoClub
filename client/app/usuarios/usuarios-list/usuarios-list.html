@@ -2,7 +2,7 @@
 
     <div>This is the usuarios-list view.</div>
 
-    <table class="table table-hover">
+    <!--table class="table table-hover">
         <thead>
             <tr>
                 <th>Id</th>
@@ -29,5 +29,49 @@
                 <td><a class="btn btn-primary" ng-click="vm.goUpdateUser(item.id)">Editar</a></td>
             </tr>
         </tbody>
-    </table>
+    </table-->
+    <!--md-data-table-->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-tittle">Filtrar</h3>
+            <input type="text" class="form-control" ng-model="vm.filtro">
+        </div>
+        <div class="panel-body">
+
+            <md-table-container>
+                <table md-table>
+                    <thead md-head>
+                        <tr md-row>
+                            <th md-column>Id</th>
+                            <th md-column>Nombres</th>
+                            <th md-column>Apellidos</th>
+                            <th md-column>Email</th>
+                            <th md-column>Switch</th>
+                            <th md-column>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                        <tr md-row ng-repeat="item in vm.usuarios | limitTo: vm.query.limit:(vm.query.page -1) * vm.query.limit | filter: vm.filtro">
+                            <td md-cell>{{item.id}}</td>
+                            <td md-cell>{{item.nombres}}</td>
+                            <td md-cell>{{item.apellidos}}</td>
+                            <td md-cell>{{item.email}}</td>
+                            <td md-cell>
+                                <div class="inset">
+                                    <md-switch ng-model="vm.usuario.active" aria-label="Switch">
+                                        Switch: {{vm.usuario.active}}
+                                    </md-switch>
+                                </div>
+                            </td>
+                            <td><a class="btn btn-primary" ng-click="vm.goUpdateUser(item.id)">Editar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <md-table-pagination md-limit="vm.query.limit" md-limit-options="[5, 10, 15]" md-page="vm.query.page" md-total="{{vm.usuarios.length}}">
+
+            </md-table-pagination>
+        </div>
+    </div>
+    <!--/md-data-table-->
 </section>
